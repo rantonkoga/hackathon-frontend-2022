@@ -1,0 +1,23 @@
+.DropDownBottomWidth {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    background-color: #bbbbbb;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px 0 0 0;
+}
+
+.DropDownBottomButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.DropDownBottomClosed {
+    height: 55px;
+}
+
+.DropDownBottomOpened {
+    height: 360px;
+}

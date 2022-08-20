@@ -24,7 +24,7 @@ function DropDownTop({setFrom, setTo} : IProps) {
     if (!loadContent) {
         return (
             <div 
-                className={"DropDownWidth DropDownClosed"}
+                className={"DropDownTopWidth DropDownTopClosed"}
                 onClick={() => setLoadContent(true)}
             >
                 <div style={{width: "100%", height: "2px"}} />
@@ -33,7 +33,7 @@ function DropDownTop({setFrom, setTo} : IProps) {
         )
     }
     return (
-        <div className={`DropDownWidth DropDownOpened`}>
+        <div className={"DropDownTopWidth DropDownTopOpened"}>
             <div style={{width: "100%", height: "15px"}} />
             <input 
 				className="DropDownLocation" 
