@@ -47,7 +47,7 @@ function LogIn() {
 			/>
 			<div style={{width: "100%", height: "25px"}} />
 			<button onClick={() => handleClick()}>
-				Sign Up!
+				Log In!
 			</button>
 			<p>No account? Sign up by clicking <a href="/signup">here!</a></p>
 		</div>
