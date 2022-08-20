@@ -23,7 +23,7 @@ function LogIn() {
 		<div className="LogInPage">
 			{selected ? <Navigate to={"/app"} /> : <></>}
 			<h1>
-				Sign In!
+				Log In!
 			</h1>
 			{error.length > 0 ? <h3 style={{color: "#ff0000"}}>{error}</h3> : <></>}
 			<h4>
@@ -49,6 +49,7 @@ function LogIn() {
 			<button onClick={() => handleClick()}>
 				Sign Up!
 			</button>
+			<p>No account? Sign up by clicking <a href="/signup">here!</a></p>
 		</div>
 	);
 }
