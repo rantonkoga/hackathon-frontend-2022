@@ -16,14 +16,29 @@ function Map(location:any){
 	}), []);
 
   const [directions, setDirections] = useState<DirectionsResult>();
+  const [busDirections, setBusDirections] = useState<DirectionsResult>();
 
   const service = new google.maps.DirectionsService();
+  const busService = new google.maps.DirectionsService();
+
+  busService.route(
+    {
+      origin: "36 Gaunt Street",
+      destination: "asBuilt, 53 Woodside Avenue, Northcote, Auckland 0627",
+      travelMode: google.maps.TravelMode.TRANSIT,
+    },
+    (result, status) => {
+      if (status === "OK" && result) {
+        setBusDirections(result);
+      }
+    }
+  );
 
 	if (location['from'] == "Mangere Town Centre") {
     service.route(
       {
         origin: "Mangere Town Centre",
-        destination: "5 Mahuru Street",
+        destination: "36 Gaunt Street",
         travelMode: google.maps.TravelMode.DRIVING,
       },
       (result, status) => {
@@ -51,6 +66,18 @@ function Map(location:any){
               }}
             />
           )}
+        {busDirections && (
+            <DirectionsRenderer
+              directions={busDirections}
+              options={{
+                polylineOptions: {
+                  zIndex: 50,
+                  strokeColor: "#1976D2",
+                  strokeWeight: 5,
+                },
+              }}
+            />
+          )}
 			</GoogleMap>
 		)
 	}
@@ -58,7 +85,7 @@ function Map(location:any){
     service.route(
       {
         origin: "11 Cortina Place",
-        destination: "5 Mahuru Street",
+        destination: "36 Gaunt Street",
         travelMode: google.maps.TravelMode.DRIVING,
       },
       (result, status) => {
@@ -77,6 +104,18 @@ function Map(location:any){
         {directions && (
             <DirectionsRenderer
               directions={directions}
+              options={{
+                polylineOptions: {
+                  zIndex: 50,
+                  strokeColor: "#1976D2",
+                  strokeWeight: 5,
+                },
+              }}
+            />
+          )}
+        {busDirections && (
+            <DirectionsRenderer
+              directions={busDirections}
               options={{
                 polylineOptions: {
                   zIndex: 50,
