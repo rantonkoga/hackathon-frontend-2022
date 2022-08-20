@@ -3,18 +3,27 @@ import { Navigate } from "react-router-dom";
 
 import "./Welcome.css";
 
-function Welcome() {
-	const [selected, setSelected] = useState<boolean>(false);
+enum ButtonPressed {
+	None = 0,
+	SignUp = 1,
+	LogIn = 2
+}
 
-	document.title = "Not Implemented";
+function Welcome() {
+	const [selected, setSelected] = useState<ButtonPressed>(ButtonPressed.None);
 
 	return (
 		<div className="WelcomePage">
-			{selected ? <Navigate to={"/"} /> : <></>}
+			{selected === 0 ? <></> : <Navigate to={`/${selected === 1 ? "signup" : "login"}`} />}
 			<h1>
-				Page Not Found!!!
+				Welcome to the Park and Ride App!!
 			</h1>
-			<button onClick={() => setSelected(true)} />
+			<button onClick={() => setSelected(ButtonPressed.LogIn)}>
+				Log In
+			</button>
+			<button onClick={() => setSelected(ButtonPressed.SignUp)}>
+				Sign Up
+			</button>
 		</div>
 	);
 }
