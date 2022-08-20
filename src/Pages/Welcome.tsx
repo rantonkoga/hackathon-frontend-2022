@@ -21,6 +21,7 @@ function Welcome() {
 			<button onClick={() => setSelected(ButtonPressed.LogIn)}>
 				Log In
 			</button>
+			<div style={{width: "100%", height: "15px"}} />
 			<button onClick={() => setSelected(ButtonPressed.SignUp)}>
 				Sign Up
 			</button>
