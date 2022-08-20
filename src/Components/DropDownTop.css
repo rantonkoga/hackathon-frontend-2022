@@ -1,4 +1,4 @@
-.DropDownWidth {
+.DropDownTopWidth {
     width: 100%;
     position: absolute;
     top: 0;
@@ -9,10 +9,10 @@
     border-width: 0 0 3px 0;
 }
 
-.DropDownClosed {
+.DropDownTopClosed {
     height: 55px;
 }
 
-.DropDownOpened {
+.DropDownTopOpened {
     height: 125px;
 }
