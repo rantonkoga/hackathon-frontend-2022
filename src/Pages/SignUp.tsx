@@ -13,7 +13,8 @@ function SignUp() {
 	document.title = "Sign Up";
 
 	const handleClick = () => {
-		if (username.length === 0) setError("Please enter an Email!");
+		if (username.length === 0) setError("Please enter an email!");
+		else if (password.length === 0) setError("Please enter a password!");
 		else if (password !== confirmPassword) setError("Passwords does not match!");
 		else {
 			localStorage.setItem("email", username);
