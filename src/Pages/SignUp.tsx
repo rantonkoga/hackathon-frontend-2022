@@ -26,7 +26,7 @@ function SignUp() {
 		<div className="SignUpPage">
 			{selected ? <Navigate to={"/app"} /> : <></>}
 			<h1>
-				Sign Up Page!
+				Sign Up for a New Account!
 			</h1>
 			{error.length > 0 ? <h3 style={{color: "#ff0000"}}>{error}</h3> : <></>}
 			<h4>
@@ -62,6 +62,7 @@ function SignUp() {
 			<button onClick={() => handleClick()}>
 				Sign Up!
 			</button>
+			<p>Have an account? Log in by clicking <a href="/login">here!</a></p>
 		</div>
 	);
 }
