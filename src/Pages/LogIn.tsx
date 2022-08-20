@@ -12,7 +12,7 @@ function LogIn() {
 	document.title = "Log In!";
 
 	const handleClick = () => {
-		if(username.length === 0) setError("Please enter your username!");
+		if(username.length === 0) setError("Please enter your email!");
 		else if(password.length === 0) setError("Please enter your password!");
 		else {
 			setSelected(true)
