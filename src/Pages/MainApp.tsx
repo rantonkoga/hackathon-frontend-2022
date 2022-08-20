@@ -4,10 +4,14 @@ import { Navigate } from "react-router-dom";
 import { useMemo } from "react"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
+import DropDownTop from '../Components/DropDownTop';
 import "./MainApp.css";
 
 function MainApp() {
-	const [selected, setSelected] = useState<boolean>(false);
+	const [selectedSignOut, setSelectedSignOut] = useState<boolean>(false);
+    const [fromLocation, setFromLocation] = useState<string>("");
+    const [toLocation, setToLocation] = useState<string>("");
+
 	document.title = "Not Implemented";
 	const { isLoaded } = useLoadScript(
 		{"googleMapsApiKey": process.env.REACT_APP_PUBLIC_GOOGLE_MAPS_API_KEY||""}
@@ -17,9 +21,10 @@ function MainApp() {
 
 	return (
 		<div className="MainAppPage">
-			{selected ? <Navigate to={"/"} /> : <></>}
+			{selectedSignOut ? <Navigate to={"/"} /> : <></>}
+			<DropDownTop setFrom={setFromLocation} setTo={setToLocation} />
 			<Map />
-			<button onClick={() => setSelected(true)} />
+			<button onClick={() => setSelectedSignOut(true)} />
 		</div>
 	);
 }
