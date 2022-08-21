@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react"
-import { GoogleMap, MarkerF, DirectionsRenderer } from "@react-google-maps/api";
+import { GoogleMap, DirectionsRenderer } from "@react-google-maps/api";
 import "./Map.css";
 
 type DirectionsResult = google.maps.DirectionsResult;
@@ -33,8 +33,17 @@ function Map(location:any){
       }
     }
   );
-
-	if (location['from'] == "Mangere Town Centre") {
+  
+  if (location['from'] == "" || location['to'] == "") {
+		return (
+			<GoogleMap
+				zoom={12}
+				center={center}
+				mapContainerClassName="map-container"
+			></GoogleMap>
+    )
+  }
+	else if (location['from'] == "Mangere Town Centre") {
     service.route(
       {
         origin: "Mangere Town Centre",
@@ -53,7 +62,6 @@ function Map(location:any){
 				center={center}
 				mapContainerClassName="map-container"
 			>
-				<MarkerF position={asbuilt} />
         {directions && (
             <DirectionsRenderer
               directions={directions}
@@ -100,7 +108,6 @@ function Map(location:any){
 				center={center}
 				mapContainerClassName="map-container"
 			>
-				<MarkerF position={asbuilt} />
         {directions && (
             <DirectionsRenderer
               directions={directions}
