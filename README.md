@@ -8,8 +8,11 @@ Current Features:
 
 Caveats:
 * You can use any username/email and password to `login`.
-* The location is set to a pre-defined route so currently not able to set any location yet.
 * Currently most of the dropdown information is hard-coded so information displayed on map and dropdown may not be accurate.
+* The location is set to a pre-defined route so currently not able to set any location yet.
+* Current Hard Coded Set Routes that are usable
+  * From : Mangere Town Centre / 11 Cortina Place
+  * To : AsBuilt
 
 ## Requirements:
 * [Node v16+](https://nodejs.org/en/download/)
