@@ -32,7 +32,7 @@ function DropDownBottom({cost, timeTaken, bus, co2Saved, setSelectSignOut}: IPro
             <h3>TIME TAKEN TO DESTINATION:</h3>
             <h4>{timeTaken ? timeTaken : "23 minutes"}</h4>
             <h3>CURRENT BUS TO TAKE:</h3>
-            <h4>{bus ? bus : "966"}</h4>
+            <h4>{bus ? bus : "966 - this bus is statistically more punctual than other buses coming toward your destination"}<br/>{"Alternatively, you can take bus 95B"}</h4>
             <h3>TOTAL CARBON SAVED THIS WEEK:</h3>
             <h4>{co2Saved ? co2Saved : "7 kg "}</h4>
             <div className={"DropDownBottomButtons"}>
