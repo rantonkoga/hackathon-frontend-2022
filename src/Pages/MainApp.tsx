@@ -12,7 +12,7 @@ function MainApp() {
     const [fromLocation, setFromLocation] = useState<string>("");
     const [toLocation, setToLocation] = useState<string>("");
 
-	document.title = "Not Implemented";
+	document.title = "Park and Ride";
 	const { isLoaded } = useLoadScript(
 		{"googleMapsApiKey": process.env.REACT_APP_PUBLIC_GOOGLE_MAPS_API_KEY||""}
 	)
