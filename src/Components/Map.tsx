@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef } from "react"
+import { useMemo, useState } from "react"
 import { GoogleMap, DirectionsRenderer } from "@react-google-maps/api";
 import "./Map.css";
 
@@ -10,10 +10,10 @@ function Map(location:any){
 		lng: 174.77691315740879
 	  }), []);
 
-	const asbuilt = useMemo(() => ({
-		lat: -36.80480322828371,
-		lng: 174.7408660846596
-	}), []);
+	// const asbuilt = useMemo(() => ({
+	// 	lat: -36.80480322828371,
+	// 	lng: 174.7408660846596
+	// }), []);
 
   const [directions, setDirections] = useState<DirectionsResult>();
   const [busDirections, setBusDirections] = useState<DirectionsResult>();
@@ -34,7 +34,7 @@ function Map(location:any){
     }
   );
   
-  if (location['from'] == "" || location['to'] == "") {
+  if (location['from'] === "" || location['to'] === "") {
 		return (
 			<GoogleMap
 				zoom={12}
@@ -43,7 +43,7 @@ function Map(location:any){
 			></GoogleMap>
     )
   }
-	else if (location['from'] == "Mangere Town Centre") {
+	else if (location['from'] === "Mangere Town Centre") {
     service.route(
       {
         origin: "Mangere Town Centre",
