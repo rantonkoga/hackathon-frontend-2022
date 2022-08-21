@@ -24,7 +24,7 @@ function MainApp() {
 			{selectedSignOut ? <Navigate to={"/"} /> : <></>}
 			<DropDownTop setFrom={setFromLocation} setTo={setToLocation} />
 			<Map from={fromLocation} to={toLocation}/>
-			<DropDownBottom cost={null} timeTaken={null} bus={null} setSelectSignOut={setSelectedSignOut} /> 
+			<DropDownBottom cost={null} timeTaken={null} bus={null} co2Saved={null} setSelectSignOut={setSelectedSignOut} /> 
 		</div>
 	);
 }
