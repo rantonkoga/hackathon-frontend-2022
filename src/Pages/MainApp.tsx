@@ -1,20 +1,30 @@
+import React from 'react'
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-
+import DropDownTop from '../Components/DropDownTop';
+import DropDownBottom from '../Components/DropDownBottom';
+import Map from '../Components/Map';
+import { useLoadScript } from "@react-google-maps/api";
 import "./MainApp.css";
 
 function MainApp() {
-	const [selected, setSelected] = useState<boolean>(false);
+	const [selectedSignOut, setSelectedSignOut] = useState<boolean>(false);
+    const [fromLocation, setFromLocation] = useState<string>("");
+    const [toLocation, setToLocation] = useState<string>("");
 
-	document.title = "Not Implemented";
+	document.title = "Park and Ride";
+	const { isLoaded } = useLoadScript(
+		{"googleMapsApiKey": process.env.REACT_APP_PUBLIC_GOOGLE_MAPS_API_KEY||""}
+	)
+
+	if (!isLoaded) return <div>Loading...</div>
 
 	return (
 		<div className="MainAppPage">
-			{selected ? <Navigate to={"/"} /> : <></>}
-			<h1>
-				Page Not Found!!!
-			</h1>
-			<button onClick={() => setSelected(true)} />
+			{selectedSignOut ? <Navigate to={"/"} /> : <></>}
+			<DropDownTop setFrom={setFromLocation} setTo={setToLocation} />
+			<Map from={fromLocation} to={toLocation}/>
+			<DropDownBottom cost={null} timeTaken={null} bus={null} co2Saved={null} setSelectSignOut={setSelectedSignOut} /> 
 		</div>
 	);
 }
