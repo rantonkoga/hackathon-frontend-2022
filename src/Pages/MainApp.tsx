@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import DropDownTop from '../Components/DropDownTop';
+import DropDownBottom from '../Components/DropDownBottom';
 import Map from '../Components/Map';
 import { useLoadScript } from "@react-google-maps/api";
 import "./MainApp.css";
@@ -23,7 +24,7 @@ function MainApp() {
 			{selectedSignOut ? <Navigate to={"/"} /> : <></>}
 			<DropDownTop setFrom={setFromLocation} setTo={setToLocation} />
 			<Map from={fromLocation} to={toLocation}/>
-			<button onClick={() => setSelectedSignOut(true)} />
+			<DropDownBottom cost={null} timeTaken={null} bus={null} setSelectSignOut={setSelectedSignOut} /> 
 		</div>
 	);
 }
